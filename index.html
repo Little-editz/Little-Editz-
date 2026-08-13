@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Roshan Visuals — Little_Editz</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080809;
+    color:#f5f3ed;
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+:root{
+    --bg:#080809;
+    --card:#111113;
+    --card2:#171719;
+    --gold:#d4af37;
+    --gold2:#f0d77b;
+    --text:#f5f3ed;
+    --muted:#99999f;
+    --line:rgba(255,255,255,.09);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+/* GRAIN */
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    z-index:999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    height:70px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 6%;
+    background:rgba(8,8,9,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:21px;
+}
+
+.logo span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.navlinks{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.navlinks a{
+    color:var(--muted);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    transition:.25s;
+}
+
+.navlinks a:hover{
+    color:var(--gold2);
+}
+
+.navbtn{
+    background:var(--gold);
+    color:#080809!important;
+    padding:11px 18px;
+    border-radius:4px;
+    font-weight:700;
+}
+
+/* HERO */
+
+.hero{
+    min-height:calc(100vh - 70px);
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    align-items:center;
+    gap:50px;
+    padding:70px 8%;
+    position:relative;
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:5%;
+    top:10%;
+    background:radial-gradient(circle,rgba(212,175,55,.13),transparent 70%);
+    pointer-events:none;
+}
+
+.eyebrow{
+    color:var(--gold);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(48px,7vw,90px);
+    line-height:.98;
+    font-weight:500;
+}
+
+.hero h1 em{
+    color:var(--gold2);
+}
+
+.hero p{
+    color:var(--muted);
+    max-width:520px;
+    line-height:1.75;
+    margin-top:28px;
+    font-size:16px;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 25px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+}
+
+.btn.gold{
+    background:var(--gold);
+    color:#080809;
+}
+
+.btn.outline{
+    border:1px solid var(--line);
+}
+
+.btn.outline:hover{
+    border-color:var(--gold);
+}
+
+.stats{
+    display:flex;
+    gap:35px;
+    margin-top:45px;
+}
+
+.stat strong{
+    display:block;
+    font-family:'Playfair Display',serif;
+    color:var(--gold2);
+    font-size:25px;
+}
+
+.stat small{
+    color:#66666d;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-size:10px;
+}
+
+/* HERO IMAGE */
+
+.hero-photo{
+    width:min(380px,80vw);
+    aspect-ratio:1;
+    justify-self:center;
+    position:relative;
+}
+
+.hero-photo:before{
+    content:"";
+    position:absolute;
+    inset:-15px;
+    border:1px solid #6e5d2e;
+    border-radius:50%;
+}
+
+.hero-photo:after{
+    content:"ROSHAN VISUALS";
+    position:absolute;
+    bottom:-38px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:'Space Mono',monospace;
+    color:#68615a;
+    font-size:9px;
+    letter-spacing:.18em;
+    white-space:nowrap;
+}
+
+.hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:1px solid var(--line);
+    filter:contrast(1.08) saturate(.85);
+    box-shadow:0 30px 80px rgba(0,0,0,.65);
+}
+
+/* TICKER */
+
+.ticker{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:16px 0;
+    overflow:hidden;
+    white-space:nowrap;
+    background:#0d0d0f;
+}
+
+.ticker-track{
+    display:inline-block;
+    animation:move 25s linear infinite;
+}
+
+.ticker span{
+    margin:0 28px;
+    color:#67676d;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+}
+
+.ticker b{
+    color:var(--gold);
+}
+
+@keyframes move{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+}
+
+/* SECTIONS */
+
+section{
+    padding:110px 8%;
+}
+
+.tag{
+    color:var(--gold);
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
+
+.title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(34px,5vw,55px);
+    font-weight:500;
+}
+
+.title em{
+    color:var(--gold2);
+}
+
+.desc{
+    color:var(--muted);
+    max-width:560px;
+    line-height:1.7;
+    margin-top:14px;
+    margin-bottom:45px;
+}
+
+/* WORK */
+
+.work-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.work{
+    aspect-ratio:9/13;
+    border-radius:9px;
+    border:1px solid var(--line);
+    overflow:hidden;
+    position:relative;
+    background:linear-gradient(145deg,#28221b,#0d0d0f);
+    transition:.3s;
+}
+
+.work:hover{
+    transform:translateY(-6px);
+    border-color:#806b32;
+}
+
+.work:nth-child(2){
+    background:linear-gradient(145deg,#211912,#0d0d0f);
+}
+
+.work:nth-child(3){
+    background:linear-gradient(145deg,#17201e,#0d0d0f);
+}
+
+.work:nth-child(4){
+    background:linear-gradient(145deg,#211925,#0d0d0f);
+}
+
+.work:nth-child(5){
+    background:linear-gradient(145deg,#241a15,#0d0d0f);
+}
+
+.play{
+    position:absolute;
+    width:52px;
+    height:52px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:50%;
+    left:50%;
+    top:45%;
+    transform:translate(-50%,-50%);
+    display:grid;
+    place-items:center;
+}
+
+.play:after{
+    content:"";
+    border-left:13px solid white;
+    border-top:8px solid transparent;
+    border-bottom:8px solid transparent;
+    margin-left:4px;
+}
+
+.work-info{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:18px;
+    background:linear-gradient(transparent,rgba(0,0,0,.9));
+}
+
+.views{
+    color:var(--gold2);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+}
+
+.work-info p{
+    color:#aaa;
+    font-size:12px;
+    margin-top:5px;
+}
+
+/* INSTAGRAM */
+
+.instagram{
+    margin-top:35px;
+    border:1px solid var(--line);
+    background:var(--card);
+    border-radius:9px;
+    padding:22px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.instagram strong{
+    display:block;
+}
+
+.instagram span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.service{
+    background:var(--card);
+    padding:32px 25px;
+    border-right:1px solid var(--line);
+}
+
+.service:last-child{
+    border-right:none;
+}
+
+.service:hover{
+    background:var(--card2);
+}
+
+.icon{
+    color:var(--gold);
+    font-size:28px;
+    margin-bottom:22px;
+}
+
+.service h3{
+    font-family:'Playfair Display',serif;
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.service p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.65;
+}
+
+.from{
+    color:var(--gold);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    margin-top:20px;
+}
+
+/* SERVICE PHOTO */
+
+.side-photo{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:30px;
+}
+
+.side-photo img{
+    width:95px;
+    height:95px;
+    object-fit:cover;
+    border-radius:20px 4px 20px 4px;
+    filter:grayscale(1) contrast(1.2);
+    border:1px solid #6b5a30;
+}
+
+/* PRICING */
+
+.pricebox{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.price{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 28px;
+    border-bottom:1px solid var(--line);
+}
+
+.price:last-child{
+    border-bottom:none;
+}
+
+.price:hover{
+    background:var(--card2);
+}
+
+.price h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.price p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.amount{
+    color:var(--gold);
+    font-family:'Space Mono',monospace;
+    font-size:17px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.group{
+    color:#68686e;
+    font-family:'Space Mono',monospace;
+    font-size:9px;
+    letter-spacing:.15em;
+    padding:15px 28px 5px;
+    text-transform:uppercase;
+}
+
+/* PRICING PHOTO */
+
+.pricing-photo{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:25px;
+}
+
+.pricing-photo img{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    object-fit:cover;
+    filter:sepia(.35) contrast(1.15);
+    border:2px solid #7b6632;
+}
+
+/* CONTACT */
+
+.contact{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:45px;
+}
+
+.contact-photo{
+    width:210px;
+    height:270px;
+    overflow:hidden;
+    border:1px solid #68582f;
+    border-radius:5px 50px 5px 50px;
+    margin-bottom:30px;
+}
+
+.contact-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:grayscale(.45) contrast(1.2) brightness(.88);
+}
+
+.contact-text h3{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.contact-text p{
+    color:var(--muted);
+    line-height:1.7;
+    max-width:400px;
+}
+
+/* FORM */
+
+.form{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:30px;
+}
+
+.field{
+    margin-bottom:18px;
+}
+
+.field label{
+    display:block;
+    color:#88888f;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    margin-bottom:8px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    background:#0a0a0c;
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:13px;
+    color:white;
+    outline:none;
+    font-family:inherit;
+}
+
+.field textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#78632f;
+}
+
+.submit{
+    width:100%;
+    padding:15px;
+    background:var(--gold);
+    color:#080809;
+    border:0;
+    border-radius:4px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    padding:45px 8%;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.footer-logo{
+    font-family:'Playfair Display',serif;
+    font-size:21px;
+}
+
+.footer-logo span{
+    color:var(--gold);
+}
+
+footer p{
+    color:#66666d;
+    font-size:11px;
+    margin-top:8px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+    color:#999;
+    font-size:12px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#25D366;
+    color:#06170c;
+    display:grid;
+    place-items:center;
+    font-weight:bold;
+    z-index:200;
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:55px;
+    }
+
+    .hero-photo{
+        justify-self:start;
+        width:240px;
+        margin-top:25px;
+    }
+
+    .work-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .services{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .service{
+        border-bottom:1px solid var(--line);
+    }
+
+    .contact{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:600px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    .navlinks{
+        gap:12px;
+    }
+
+    .navlinks a:not(.navbtn){
+        display:none;
+    }
+
+    section{
+        padding:80px 6%;
+    }
+
+    .hero{
+        padding:55px 6%;
+    }
+
+    .stats{
+        gap:18px;
+    }
+
+    .work-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .service{
+        border-right:none;
+    }
+
+    .instagram{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .price{
+        padding:20px 17px;
+    }
+
+    .price p{
+        max-width:190px;
+    }
+
+    .contact-photo{
+        width:170px;
+        height:220px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="#" class="logo">
+Roshan <span>Visuals</span>
+</a>
+
+<div class="navlinks">
+
+<a href="#work">Work</a>
+<a href="#services">Services</a>
+<a href="#pricing">Pricing</a>
+
+<a href="#contact" class="navbtn">
+Let's Talk
+</a>
+
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div>
+
+<div class="eyebrow">
+Chennai · Video Editor & Designer
+</div>
+
+<h1>
+Footage into<br>
+<em>feeling.</em>
+</h1>
+
+<p>
+I turn raw footage into reels, posters and visual stories
+designed to stop the scroll and make people watch until the end.
+</p>
+
+<div class="buttons">
+
+<a href="https://wa.me/919629617403" target="_blank" class="btn gold">
+Chat on WhatsApp →
+</a>
+
+<a href="#work" class="btn outline">
+See My Work
+</a>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<strong>16.2K</strong>
+<small>Views · 30 Days</small>
+</div>
+
+<div class="stat">
+<strong>5+</strong>
+<small>Projects</small>
+</div>
+
+<div class="stat">
+<strong>24h</strong>
+<small>Turnaround</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-photo">
+
+<img src="assets/roshan.png" alt="Roshan">
+
+</div>
+
+</section>
+
+
+<!-- TICKER -->
+
+<div class="ticker">
+
+<div class="ticker-track">
+
+<span>REEL EDITING <b>·</b></span>
+<span>POSTER DESIGN <b>·</b></span>
+<span>THUMBNAILS <b>·</b></span>
+<span>COLOR GRADING <b>·</b></span>
+<span>MOTION GRAPHICS <b>·</b></span>
+<span>SHORT FILMS <b>·</b></span>
+
+<span>REEL EDITING <b>·</b></span>
+<span>POSTER DESIGN <b>·</b></span>
+<span>THUMBNAILS <b>·</b></span>
+<span>COLOR GRADING <b>·</b></span>
+<span>MOTION GRAPHICS <b>·</b></span>
+<span>SHORT FILMS <b>·</b></span>
+
+</div>
+
+</div>
+
+
+<!-- WORK -->
+
+<section id="work">
+
+<div class="tag">Proof, Not Promises</div>
+
+<h2 class="title">
+Recent <em>work</em>
+</h2>
+
+<p class="desc">
+A selection of edits created for creators, businesses and personal brands.
+Tap a project to view the portfolio on Instagram.
+</p>
+
+
+<div class="work-grid">
+
+
+<a class="work" href="https://instagram.com/little_editz_2k26" target="_blank">
+
+<div class="play"></div>
+
+<div class="work-info">
+
+<div class="views">3,298 views</div>
+
+<p>Temple Reel · Cinematic Grade</p>
+
+</div>
+
+</a>
+
+
+<a class="work" href="https://instagram.com/little_editz_2k26" target="_blank">
+
+<div class="play"></div>
+
+<div class="work-info">
+
+<div class="views">2,986 views</div>
+
+<p>Bike Edit · Transitions</p>
+
+</div>
+
+</a>
+
+
+<a class="work" href="https://instagram.com/little_editz_2k26" target="_blank">
+
+<div class="play"></div>
+
+<div class="work-info">
+
+<div class="views">1,903 views</div>
+
+<p>City Reel · Cinematic Cut</p>
+
+</div>
+
+</a>
+
+
+<a class="work" href="https://instagram.com/little_editz_2k26" target="_blank">
+
+<div class="play"></div>
+
+<div class="work-info">
+
+<div class="views">406 views</div>
+
+<p>Church Edit · Motion FX</p>
+
+</div>
+
+</a>
+
+
+<a class="work" href="https://instagram.com/little_editz_2k26" target="_blank">
+
+<div class="play"></div>
+
+<div class="work-info">
+
+<div class="views">INTRO</div>
+
+<p>Little_Editz · Brand Reel</p>
+
+</div>
+
+</a>
+
+
+</div>
+
+
+<div class="instagram">
+
+<div>
+
+<strong>@little_editz_2k26</strong>
+
+<span>
+Full portfolio · Updated regularly
+</span>
+
+</div>
+
+<a href="https://instagram.com/little_editz_2k26"
+target="_blank"
+class="btn outline">
+
+View Instagram →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="side-photo">
+
+<img src="assets/roshan.png" alt="Roshan">
+
+</div>
+
+<div class="tag">
+What I Create
+</div>
+
+<h2 class="title">
+My <em>Services</em>
+</h2>
+
+<p class="desc">
+Everything is edited with attention to pacing, visual quality and
+the final viewer experience.
+</p>
+
+
+<div class="services">
+
+
+<div class="service">
+
+<div class="icon">◉</div>
+
+<h3>Reel Editing</h3>
+
+<p>
+Raw footage turned into a scroll-stopping reel with
+cuts, captions, transitions and audio sync.
+</p>
+
+<div class="from">
+FROM ₹299
+</div>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">◇</div>
+
+<h3>Poster Design</h3>
+
+<p>
+Premium posters for events, launches, promotions
+and social media campaigns.
+</p>
+
+<div class="from">
+FROM ₹199
+</div>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">△</div>
+
+<h3>Thumbnail Design</h3>
+
+<p>
+High-contrast thumbnails designed to improve
+attention and clicks.
+</p>
+
+<div class="from">
+FROM ₹149
+</div>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">▣</div>
+
+<h3>Short Films</h3>
+
+<p>
+Story-driven edits for brands, events, creators
+and personal projects.
+</p>
+
+<div class="from">
+FROM ₹1,500
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing">
+
+<div class="pricing-photo">
+
+<img src="assets/roshan.png" alt="Roshan">
+
+</div>
+
+<div class="tag">
+Clear Rates
+</div>
+
+<h2 class="title">
+Simple <em>Pricing</em>
+</h2>
+
+<p class="desc">
+Straightforward pricing. No hidden charges.
+</p>
+
+
+<div class="pricebox">
+
+
+<div class="group">
+Reel Editing
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Basic Reel Edit</h3>
+<p>Cuts, captions, trending audio sync</p>
+</div>
+
+<div class="amount">₹299</div>
+
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Standard Reel Edit</h3>
+<p>Transitions + colour grading</p>
+</div>
+
+<div class="amount">₹499</div>
+
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Premium Reel Edit</h3>
+<p>Motion graphics + storytelling</p>
+</div>
+
+<div class="amount">₹799</div>
+
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Monthly Package</h3>
+<p>4 reels per month</p>
+</div>
+
+<div class="amount">₹1,499</div>
+
+</div>
+
+
+<div class="group">
+Design
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Poster Design</h3>
+<p>Single premium poster</p>
+</div>
+
+<div class="amount">₹199</div>
+
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Thumbnail</h3>
+<p>Single thumbnail</p>
+</div>
+
+<div class="amount">₹149</div>
+
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Thumbnail Pack</h3>
+<p>5 thumbnails</p>
+</div>
+
+<div class="amount">₹499</div>
+
+</div>
+
+
+<div class="group">
+Film
+</div>
+
+
+<div class="price">
+
+<div>
+<h3>Short Film / Brand Video</h3>
+<p>1–3 minute project</p>
+</div>
+
+<div class="amount">₹1,500–3,000</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="contact">
+
+
+<div class="contact-text">
+
+<div class="contact-photo">
+
+<img src="assets/roshan.png" alt="Roshan">
+
+</div>
+
+<div class="tag">
+Let's Work Together
+</div>
+
+<h2 class="title">
+Start a <em>project.</em>
+</h2>
+
+<p>
+Have a reel, brand video, poster or creative project?
+Tell me what you're working on and I'll get back to you.
+</p>
+
+<br>
+
+<a href="https://wa.me/919629617403"
+target="_blank"
+class="btn gold">
+
+Chat directly on WhatsApp →
+
+</a>
+
+</div>
+
+
+<div class="form">
+
+<form id="bookingForm">
+
+
+<div class="field">
+
+<label>Your Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Your name"
+required>
+
+</div>
+
+
+<div class="field">
+
+<label>WhatsApp Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="9xxxxxxxxx"
+required>
+
+</div>
+
+
+<div class="field">
+
+<label>Service</label>
+
+<select id="service" required>
+
+<option value="">Choose a service</option>
+
+<option>Basic Reel Edit — ₹299</option>
+
+<option>Standard Reel Edit — ₹499</option>
+
+<option>Premium Reel Edit — ₹799</option>
+
+<option>Monthly Package — ₹1,499</option>
+
+<option>Poster Design — ₹199</option>
+
+<option>Thumbnail — ₹149</option>
+
+<option>Thumbnail Pack — ₹499</option>
+
+<option>Short Film / Brand Video — ₹1,500–3,000</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Project Details</label>
+
+<textarea
+id="details"
+placeholder="Tell me about your project..."></textarea>
+
+</div>
+
+
+<button class="submit" type="submit">
+
+SEND BOOKING REQUEST →
+
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<div>
+
+<div class="footer-logo">
+Roshan <span>Visuals</span>
+</div>
+
+<p>
+Video Editor & Designer · Chennai
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="https://instagram.com/little_editz_2k26"
+target="_blank">
+Instagram
+</a>
+
+<a href="https://wa.me/919629617403"
+target="_blank">
+WhatsApp
+</a>
+
+</div>
+
+</footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+href="https://wa.me/919629617403"
+target="_blank"
+class="whatsapp">
+
+WA
+
+</a>
+
+
+<script>
+
+/* WHATSAPP BOOKING */
+
+document
+.getElementById("bookingForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const name =
+document.getElementById("name").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const service =
+document.getElementById("service").value;
+
+const details =
+document.getElementById("details").value;
+
+
+const message =
+`Hi Roshan!
+
+I want to book a project.
+
+Name: ${name}
+
+My WhatsApp: ${phone}
+
+Service: ${service}
+
+Project Details:
+${details}`;
+
+
+window.open(
+"https://wa.me/919629617403?text="
++encodeURIComponent(message),
+"_blank"
+);
+
+});
+
+</script>
+
+</body>
+</html>
